@@ -8,9 +8,10 @@ if __name__ == '__main__':
     # input files in the demo folder:
     files = [
         'demo_data\modality_C_boutons.csv',
-        # 'demo_data\modality_C_fibers.csv',
+        'demo_data\modality_C_fibers.csv',
         # 'demo_data\modality_A_boutons.csv',
         # 'demo_data\modality_A_fibers.csv',
+        'demo_data\modality_Neurons.csv',
         # 'demo_data\modality_data.csv'
     ]
 
@@ -32,6 +33,8 @@ if __name__ == '__main__':
                                 angles = [210, 90, 330],
                                 labels = False,
                                 scalecircle = 0.5,   # Scale circle radius
+                                scalecircle_linestyle = '-',
+                                scalecircle_linewidth = 0.75,
                                 marker = '',         # vector endpoints marker
                                 linestyle = '-',
                                 linewidth = 0.5,
@@ -45,9 +48,9 @@ if __name__ == '__main__':
                                     'tab:green',   # Set 1 color
                                     'navy',        # Set 2 color
                                     'tab:red',     # Set 3 color
-                                    'tab:cyan',    # Sets 1 & 2 intersection color
-                                    'darkorange',  # Sets 1 & 3 intersection color
-                                    'tab:purple',  # Sets 2 & 3 intersection color
+                                    '#1E88E5',#'tab:cyan',    # Sets 1 & 2 intersection color
+                                    '#FF9933',#'darkorange',  # Sets 1 & 3 intersection color
+                                    '#9900FF',#'tab:purple',  # Sets 2 & 3 intersection color
                                     'black'),      # All sets   intersection color
                                 )
 

@@ -24,6 +24,8 @@ class ModalityPlot:
                  angles = [90, 210, 330],
                  labels = True,
                  scalecircle = 1,      # Scale circle radius
+                 scalecircle_linestyle = ':',
+                 scalecircle_linewidth = 1,
                  marker = '',          # vector endpoints marker
                  linestyle = '-',
                  linewidth = 0.5,
@@ -51,6 +53,8 @@ class ModalityPlot:
         self.angles = np.deg2rad(angles)
         self.labels = labels
         self.scalecircle = scalecircle
+        self.scalecircle_linestyle = scalecircle_linestyle
+        self.scalecircle_linewidth = scalecircle_linewidth
         self.marker = marker
         self.linestyle = linestyle
         self.linewidth = linewidth
@@ -150,7 +154,7 @@ class ModalityPlot:
         r = self.scalecircle
         theta = np.linspace(0, 2*np.pi, 100)
         ax.plot(theta, [r]*len(theta), color='black',
-                linestyle=':', linewidth=1, zorder=10)
+                linestyle=self.scalecircle_linestyle, linewidth=self.scalecircle_linewidth, zorder=10)
 
     def initiate_subplot(self, ax) -> None:
 
