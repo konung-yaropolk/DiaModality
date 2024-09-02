@@ -191,7 +191,7 @@ class ModalityPlot:
 
         for resultant, data_row, bin_row in zip(resultants, self.data, self.binarization):
 
-            if resultant and np.array_equal(bin_row, modality_pattern) or (modality_pattern == (True, True, True) and self.FULL_CENTER):
+            if resultant and np.array_equal(bin_row, modality_pattern) or (self.FULL_CENTER and not self.WHOLE_SUM and modality_pattern == (True, True, True) and tuple(bin_row) not in self.modality_patterns[:3]):
                 # defining the modality of responce to apply color and z-order
                 modality_pattern_number = self.find_match_modality(
                     bin_row, self.modality_patterns)
@@ -207,7 +207,8 @@ class ModalityPlot:
                     linestyle=self.linestyle,
                     linewidth=self.linewidth,
                     color=color,
-                    alpha=self.alpha)
+                    alpha=self.alpha
+                )
                 if self.labels:
                     ax.set_xticklabels(modalities)
 
@@ -223,12 +224,12 @@ class ModalityPlot:
 
         # Defining layout
         gs = gridspec.GridSpec(20, 20, figure=fig)
-        ax1 = fig.add_subplot(gs[1:11, 5:15], polar=True)
-        ax2 = fig.add_subplot(gs[7:17, 1:11], polar=True)
+        ax1 = fig.add_subplot(gs[7:17, 1:11], polar=True)#fig.add_subplot(gs[1:11, 5:15], polar=True)
+        ax2 = fig.add_subplot(gs[1:11, 5:15], polar=True)#fig.add_subplot(gs[7:17, 1:11], polar=True)
         ax3 = fig.add_subplot(gs[7:17, 9:19], polar=True)
         ax12 = fig.add_subplot(gs[4:14, 3:13], polar=True)
-        ax13 = fig.add_subplot(gs[4:14, 7:17], polar=True)
-        ax23 = fig.add_subplot(gs[7:17, 5:15], polar=True)
+        ax13 = fig.add_subplot(gs[7:17, 5:15], polar=True)#fig.add_subplot(gs[4:14, 7:17], polar=True)
+        ax23 = fig.add_subplot(gs[4:14, 7:17], polar=True)#fig.add_subplot(gs[7:17, 5:15], polar=True)
         ax0 = fig.add_subplot(gs[5:15, 5:15], polar=True)
         subplots = (ax1, ax2, ax3, ax12, ax13, ax23, ax0)
 

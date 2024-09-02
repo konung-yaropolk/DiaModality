@@ -29,15 +29,15 @@ if __name__ == '__main__':
                                 binarization,
                                 modalities = [
                                     'Set 1', 'Set 2', 'Set 3'],
-                                angles = [90, 210, 330],
+                                angles = [210, 90, 330],
                                 labels = False,
                                 scalecircle = 0.5,   # Scale circle radius
                                 marker = '',         # vector endpoints marker
                                 linestyle = '-',
-                                linewidth = 0.7,
+                                linewidth = 0.5,
                                 alpha = 0.5,
                                 same_scale = False,    # Draw all the subplots in the same scale
-                                FULL_CENTER = False,   # Draw all vectors in central subplot, else draw trimodal only
+                                FULL_CENTER = True,   # Draw all vectors in central subplot, else draw trimodal only
                                 WHOLE_SUM = False,    # Calculate all three modality vectors despite binarization
                                 figsize = (10, 10),
                                 title = 'Modality Diagram Example',
