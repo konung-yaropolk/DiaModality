@@ -50,7 +50,10 @@ class __Output():
     def show(self):
         plt.show()
 
-    def save(self, filename, type='png', transparent=False):
+    def save(self,
+             filename,
+             type='png',
+             transparent=False):        
         plt.savefig('{}.{}'.format(filename, type), transparent=transparent)
 
 
@@ -70,26 +73,26 @@ class ModalityPlot(__Figure, __Output):
         modalities=('Set A', 'Set B', 'Set C'),
         angles=[90, 210, 330],
         labels=True,
-        scalecircle=1,      # Scale circle radius
+        scalecircle=1,             # Scale circle radius
         scalecircle_linestyle=':',
         scalecircle_linewidth=1,
-        marker='',          # vector endpoints marker
+        marker='',                 # vector endpoints marker
         linestyle='-',
         linewidth=0.5,
         alpha=0.8,
-        same_scale=False,    # Draw all the subplots in the same scale
-        FULL_CENTER=True,   # Draw all vectors in central subplot, else draw trimodal only
-        WHOLE_SUM=True,    # Calculate all three modality vectors despite binarization
+        same_scale=False,          # Draw all the subplots in the same scale
+        full_center=True,          # Draw all vectors in the central subplot, else draw trimodal vectors only
+        whole_sum=True,            # Calculate all three modality vectors despite binarization
         figsize=(10, 10),
         title='',
         colors=(
-            'tab:green',   # Set 1 color
-            'navy',        # Set 2 color
-            'tab:red',     # Set 3 color
-            'tab:cyan',    # Sets 1 & 2 intersection color
-            'darkorange',  # Sets 1 & 3 intersection color
-            'tab:purple',  # Sets 2 & 3 intersection color
-            'black',       # All sets   intersection color
+            'tab:green',           # Set 1 color
+            'navy',                # Set 2 color
+            'tab:red',             # Set 3 color
+            '#1E88E5',             # Sets 1 & 2 intersection color
+            '#FF9933',             # Sets 1 & 3 intersection color
+            '#9900FF',             # Sets 2 & 3 intersection color
+            'black',               # All sets   intersection color
         ),
         normalization_func='sigmoid',
     ) -> None:
@@ -102,8 +105,8 @@ class ModalityPlot(__Figure, __Output):
         self.scalecircle_linestyle = scalecircle_linestyle
         self.scalecircle_linewidth = scalecircle_linewidth
         self.same_scale = same_scale
-        self.FULL_CENTER = FULL_CENTER
-        self.WHOLE_SUM = WHOLE_SUM
+        self.full_center = full_center
+        self.whole_sum = whole_sum
         self.colors = colors
         self.normalization_func = normalization_func
         self.modality_patterns = (
@@ -195,7 +198,7 @@ class ModalityPlot(__Figure, __Output):
                     resultants,
                     np.sum(
                         [points[i] * np.exp(1j * self.angles[i])
-                            if bins[i] or self.WHOLE_SUM
+                            if bins[i] or self.whole_sum
                             else 0
                             for i in range(len(points))
                          ]
@@ -262,10 +265,10 @@ class ModalityPlot(__Figure, __Output):
 
             if (resultant
                 and np.array_equal(bin_row, modality_pattern) 
-                or (self.FULL_CENTER 
+                or (self.full_center 
                     and modality_pattern == (True, True, True)
                     and (tuple(bin_row) not in self.modality_patterns[:3] 
-                        or self.WHOLE_SUM
+                        or self.whole_sum
                         )
                     )                                                                                
                 ):

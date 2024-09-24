@@ -44,9 +44,10 @@ class LoadCsv:
 
         return output
 
-    def ParseCsv_modplot(self) -> list:
+    def ParseCsv_old(self) -> list:
         '''
-            Legacy method - to be removed
+            Ugly legacy method specific for modality plot only
+            to be removed if new one works well
         '''
         with open(self.file_path, 'r') as file:
             reader = csv.reader(file)
