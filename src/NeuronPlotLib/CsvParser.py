@@ -24,33 +24,50 @@ class LoadCsv:
 
         with open(self.file_path, 'r') as file:
             reader = csv.reader(file)
-            table = list(reader)
-
+            table = tuple(reader)
             output = []
-            for i, arg in enumerate(args):
-                output.append([])
 
-                start = sum(args)-sum(args[i:])
+            for i, arg in enumerate(args):
+
+                output.append([])
+                start = sum(args) - sum(args[i:])
                 stop = start + arg
 
                 for row in table:
                     output[i].append(
-                        tuple(float(cell) if cell else None for cell in row[start:stop]))
+                        tuple(
+                            float(cell) if cell 
+                            else None 
+                            for cell in row[start:stop]
+                        )
+                    )
 
         return output
 
     def ParseCsv_modplot(self) -> list:
         '''
-            Legacy method to be removed
+            Legacy method - to be removed
         '''
         with open(self.file_path, 'r') as file:
             reader = csv.reader(file)
             data, binarization = [], []
             for row in reader:
                 data.append(
-                    tuple(float(cell) if cell else 0 for cell in row[:3]))
+                    tuple(
+                        float(cell)
+                        if cell
+                        else 0
+                        for cell in row[:3]
+                    )
+                )
                 binarization.append(
-                    tuple(True if cell else False for cell in row[3:6]))
+                    tuple(
+                        True 
+                        if cell 
+                        else False 
+                        for cell in row[3:6]
+                    )
+                )
 
         return data, binarization
 
