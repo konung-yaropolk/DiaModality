@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 
 # Demo output
-demo/demo_data/*svg
+demo/demo_data/*.svg
+demo/demo_data/*.png
 
 # C extensions
 *.so
