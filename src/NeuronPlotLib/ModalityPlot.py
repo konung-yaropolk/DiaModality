@@ -260,9 +260,16 @@ class ModalityPlot(__Figure, __Output):
 
         for resultant, data_row, bin_row in zip(resultants, self.data, self.binarization):
 
-            if resultant and np.array_equal(bin_row, modality_pattern) or (self.FULL_CENTER
-                                                                           and modality_pattern == (True, True, True)
-                                                                           and tuple(bin_row) not in self.modality_patterns[:3]):
+            if (resultant
+                and np.array_equal(bin_row, modality_pattern) 
+                or (self.FULL_CENTER 
+                    and modality_pattern == (True, True, True)
+                    and (tuple(bin_row) not in self.modality_patterns[:3] 
+                        or self.WHOLE_SUM
+                        )
+                    )                                                                                
+                ):
+
                 # defining the modality of responce to apply color and z-order
                 modality_pattern_number = self.__find_match_modality(
                     bin_row, self.modality_patterns)
