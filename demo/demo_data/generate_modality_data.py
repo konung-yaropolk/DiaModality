@@ -18,12 +18,12 @@ with open(file_path, mode='w', newline='') as file:
 
     # Generate the data
     for _ in range(num_rows):
-        col1 = random.uniform(0, 0.7)
-        col2 = random.uniform(0, 0.6)
-        col3 = random.uniform(0, 0.5)
+        col1 = random.uniform(0, 2.7)
+        col2 = random.uniform(0, 1.9)
+        col3 = random.uniform(0, 2.3)
 
-        col4 = 1 if col1 > .1 else ''
-        col5 = 1 if col2 > .2 else ''
-        col6 = 1 if col3 > .3 else ''
+        col4 = 1 if col1 > .5 else ''
+        col5 = 1 if col2 > .3 else ''
+        col6 = 1 if col3 > .7 else ''
 
         writer.writerow([col1, col2, col3, col4, col5, col6])

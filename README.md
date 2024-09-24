@@ -1,4 +1,4 @@
-# NeuroPlot
+# NeuronPlotLib
 
 Simple tool to make extended scientific diagrams
 
