@@ -1,6 +1,6 @@
-# DiaModality
+# DiaModality - The Modality Diagram
 
-Simple tool to make extended scientific diagrams
+Simple tool to plot Vector Modality Diagram
 
 
 ##### To install package run the command inside the project dir:
@@ -8,4 +8,4 @@ Simple tool to make extended scientific diagrams
 
 
 ##### How to use:
-See the /demo directory for examples
+See the /demo directory for use case
