@@ -1,4 +1,4 @@
-# NeuronPlotLib
+# DiaModality
 
 Simple tool to make extended scientific diagrams
 

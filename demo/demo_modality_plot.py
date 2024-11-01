@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import NeuronPlotLib.CsvParser as csv
-import NeuronPlotLib.ModalityPlot as plt
+import DiaModality.CsvParser as csv
+import DiaModality.ModalityPlot as plt
 import os
 
 if __name__ == '__main__':
