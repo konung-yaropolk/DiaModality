@@ -10,6 +10,7 @@ Simple tool to plot vector modality diagram
 See the /demo directory for the use case or
 create and run the following two files:
 
+---
 ``generate_sample_data.py``:
 ```python
 import csv
@@ -41,6 +42,7 @@ with open(file_path, mode='w', newline='') as file:
 
 ```
 
+---
 ``plot_sample_data.py``:
 ```python
 import DiaModality.CsvParser as csv
