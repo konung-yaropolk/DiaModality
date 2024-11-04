@@ -1,6 +1,7 @@
 # DiaModality - The Modality Diagram
 ![Python](https://img.shields.io/badge/Python-v3.10%5E-green?logo=python)
 [![pypi_version](https://img.shields.io/pypi/v/diamodality?label=pypi)](https://pypi.org/project/diamodality)  
+![PyPI - License](https://img.shields.io/pypi/l/:diamodality)  
 
 Simple tool to plot vector modality diagram  
 
