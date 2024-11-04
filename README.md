@@ -2,16 +2,16 @@
 
 Simple tool to plot vector modality diagram
 
-##### To install package run the command inside the project dir:
+### To install package run the command:
 ``pip install diamodality``
 
 
-##### How to use:
-See the /demo directory for the use case or
+### How to use:
+See the /demo directory on Git repo or  
 create and run the following two files:
 
 ---
-``generate_sample_data.py``:
+###``generate_sample_data.py``:
 ```python
 import csv
 import random
@@ -44,7 +44,7 @@ with open(file_path, mode='w', newline='') as file:
 
 
 ---
-``plot_sample_data.py``:
+###``plot_sample_data.py``:
 ```python
 import DiaModality.CsvParser as csv
 import DiaModality.ModalityPlot as plt
