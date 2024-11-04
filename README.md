@@ -75,8 +75,7 @@ for file in files:
     plot = plt.ModalityPlot(
         data,
         binarization,
-        modalities=[
-            'Set 1', 'Set 2', 'Set 3'],
+        modalities=['Set 1', 'Set 2', 'Set 3'],
         angles=[210, 90, 330],
         labels=False,
         scalecircle=0.5,           # Scale circle radius
@@ -87,7 +86,8 @@ for file in files:
         linewidth=0.5,
         alpha=0.5,
         same_scale=False,          # Draw all the subplots in the same scale
-        full_center=True,          # Draw all vectors in the central subplot, else draw trimodal vectors only
+        full_center=True,          # Draw all vectors in the central subplot,
+                                   # else draw trimodal vectors only
         whole_sum=True,            # Calculate all three modality vectors despite binarization
         figsize=(10, 10),
         title='Modality Diagram Example',
