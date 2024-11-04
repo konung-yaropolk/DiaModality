@@ -31,14 +31,18 @@ with open(file_path, mode='w', newline='') as file:
     writer = csv.writer(file)
 
     # Generate the data
+    signal_treshold = 1.5
     for _ in range(num_rows):
+
+        # generate data columns:
         col1 = random.uniform(0, 2.7)
         col2 = random.uniform(0, 3.3)
         col3 = random.uniform(0, 7.3)
 
-        col4 = 1 if col1 > 1.5 else ''
-        col5 = 1 if col2 > 1.5 else ''
-        col6 = 1 if col3 > 1.5 else ''
+        # generate binarization columns:
+        col4 = 1 if col1 > signal_treshold else ''
+        col5 = 1 if col2 > signal_treshold else ''
+        col6 = 1 if col3 > signal_treshold else ''
 
         writer.writerow([col1, col2, col3, col4, col5, col6])
 
