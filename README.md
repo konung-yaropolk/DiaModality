@@ -2,6 +2,7 @@
 
 Simple tool to plot Vector Modality Diagram
 
+![modality_data csv](https://github.com/user-attachments/assets/eb77b4d7-281f-45b0-a5ce-4c2442fc9a75)
 
 ##### To install package run the command inside the project dir:
 ``pip install .``
