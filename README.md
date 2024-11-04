@@ -1,7 +1,8 @@
 # DiaModality - The Modality Diagram
 
-Simple tool to plot vector modality diagram
-[![pypi_version](https://img.shields.io/pypi/v/diamodality?label=pypi)](https://pypi.org/project/diamodality)
+Simple tool to plot vector modality diagram  
+![Python](https://img.shields.io/badge/Python-v3.7%5E-green?logo=python)  
+[![pypi_version](https://img.shields.io/pypi/v/diamodality?label=pypi)](https://pypi.org/project/diamodality)  
 
 ### To install package run the command:
 ```bash
