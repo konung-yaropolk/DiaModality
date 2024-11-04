@@ -8,7 +8,7 @@ pip install diamodality
 ```
 
 
-### How to use:
+### Example of use:
 See the /demo directory on Git repo or  
 create and run the following two files:
 *(file names don't matter)*
