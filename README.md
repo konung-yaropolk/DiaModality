@@ -11,6 +11,7 @@ pip install diamodality
 ### How to use:
 See the /demo directory on Git repo or  
 create and run the following two files:
+*(file names don't matter)*
 
 ---
 ``generate_sample_data.py``:
