@@ -1,7 +1,7 @@
 # DiaModality - The Modality Diagram
 [![pypi_version](https://img.shields.io/pypi/v/diamodality?label=pypi)](https://pypi.org/project/diamodality)
 [![PyPI - License](https://img.shields.io/pypi/l/diamodality)](https://pypi.org/project/diamodality)
-[![Python](https://img.shields.io/badge/Python-v3.10%5E-green?logo=python)](https://pypi.org/project/diamodality)
+[![Python](https://img.shields.io/badge/Python-v3.10%5E-green?logo=python)](https://pypi.org/project/diamodality)  
 
 Simple tool to plot vector modality diagram  
 
@@ -13,7 +13,7 @@ pip install diamodality
 
 ### Example of use:
 See the /demo directory on Git repo or  
-create and run the following two files:
+create and run the following two files:  
 *(file names don't matter)*
 
 ---
