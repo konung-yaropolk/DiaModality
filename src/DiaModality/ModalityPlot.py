@@ -81,7 +81,7 @@ class ModalityPlot(__Figure, __Output):
         linewidth=0.5,
         alpha=0.8,
         same_scale=False,          # Draw all the subplots in the same scale
-        # Draw all vectors in the central subplot, else draw trimodal vectors only
+                                   # Draw all vectors in the central subplot, else draw trimodal vectors only
         full_center=True,
         whole_sum=True,            # Calculate all three modality vectors despite binarization
         figsize=(10, 10),
