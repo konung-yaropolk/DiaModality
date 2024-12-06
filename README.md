@@ -3,7 +3,7 @@
 Simple tool to plot vector modality diagram  
 
 [![pypi_version](https://img.shields.io/pypi/v/diamodality?label=PyPI&color=green)](https://pypi.org/project/diamodality)
-![GitHub Release](https://img.shields.io/github/v/release/konung-yaropolk/DiaModality?label=GitHub&color=green&link=https%3A%2F%2Fgithub.com%2Fkonung-yaropolk%2FDiaModality)
+[![GitHub Release](https://img.shields.io/github/v/release/konung-yaropolk/DiaModality?label=GitHub&color=green&link=https%3A%2F%2Fgithub.com%2Fkonung-yaropolk%2FDiaModality)](https://github.com/konung-yaropolk/DiaModality)
 [![PyPI - License](https://img.shields.io/pypi/l/diamodality)](https://pypi.org/project/diamodality)
 [![Python](https://img.shields.io/badge/Python-v3.10%5E-green?logo=python)](https://pypi.org/project/diamodality)  
 
