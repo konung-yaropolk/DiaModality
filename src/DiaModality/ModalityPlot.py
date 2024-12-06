@@ -53,7 +53,7 @@ class __Output():
     def save(self,
              filename,
              type='png',
-             transparent=False):        
+             transparent=False):
         plt.savefig('{}.{}'.format(filename, type), transparent=transparent)
 
 
@@ -81,7 +81,8 @@ class ModalityPlot(__Figure, __Output):
         linewidth=0.5,
         alpha=0.8,
         same_scale=False,          # Draw all the subplots in the same scale
-        full_center=True,          # Draw all vectors in the central subplot, else draw trimodal vectors only
+        # Draw all vectors in the central subplot, else draw trimodal vectors only
+        full_center=True,
         whole_sum=True,            # Calculate all three modality vectors despite binarization
         figsize=(10, 10),
         title='',
@@ -264,13 +265,13 @@ class ModalityPlot(__Figure, __Output):
         for resultant, data_row, bin_row in zip(resultants, self.data, self.binarization):
 
             if (resultant
-                and np.array_equal(bin_row, modality_pattern) 
-                or (self.full_center 
-                    and modality_pattern == (True, True, True)
-                    and (tuple(bin_row) not in self.modality_patterns[:3] 
-                        or self.whole_sum
-                        )
-                    )                                                                                
+                and np.array_equal(bin_row, modality_pattern)
+                or (self.full_center
+                            and modality_pattern == (True, True, True)
+                            and (tuple(bin_row) not in self.modality_patterns[:3]
+                                 or self.whole_sum
+                                 )
+                            )
                 ):
 
                 # defining the modality of responce to apply color and z-order
@@ -296,6 +297,9 @@ class ModalityPlot(__Figure, __Output):
         if self.scalecircle:
             self.__draw_scalecircle(ax)
 
+        if not self.whole_sum and sum(modality_pattern) == 1:
+            ax.set_visible(False)
+
     def _make_layout(self) -> None:
         '''
             Make figure layout,
@@ -304,15 +308,11 @@ class ModalityPlot(__Figure, __Output):
 
         # Defining layout
         gs = gridspec.GridSpec(20, 20, figure=self.fig)
-        # fig.add_subplot(gs[1:11, 5:15], polar=True)
         ax1 = self.fig.add_subplot(gs[7:17, 1:11], polar=True)
-        # fig.add_subplot(gs[7:17, 1:11], polar=True)
         ax2 = self.fig.add_subplot(gs[1:11, 5:15], polar=True)
         ax3 = self.fig.add_subplot(gs[7:17, 9:19], polar=True)
         ax12 = self.fig.add_subplot(gs[4:14, 3:13], polar=True)
-        # fig.add_subplot(gs[4:14, 7:17], polar=True)
         ax13 = self.fig.add_subplot(gs[7:17, 5:15], polar=True)
-        # fig.add_subplot(gs[7:17, 5:15], polar=True)
         ax23 = self.fig.add_subplot(gs[4:14, 7:17], polar=True)
         ax0 = self.fig.add_subplot(gs[5:15, 5:15], polar=True)
         subplots = (ax1, ax2, ax3, ax12, ax13, ax23, ax0)
