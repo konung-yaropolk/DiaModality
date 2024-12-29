@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import DiaModality.CsvParser as csv
+import DiaModality.SimpleCsv as csv
 import DiaModality.ModalityPlot as plt
 import os
 
@@ -17,8 +17,8 @@ if __name__ == '__main__':
         file_path = os.path.join(script_dir, file)
 
         # Parse data from csv file
-        new_csv = csv.LoadCsv(file_path)
-        data, binarization = new_csv.ParseCsv(3, 3)
+        new_csv = csv.OpenFile(file_path)
+        data, binarization = new_csv.GetRows(3, 3)
 
         # Make figure:
         plot = plt.ModalityPlot(data,
