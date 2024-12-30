@@ -20,6 +20,7 @@ class __Figure():
         linewidth=0.5,
         alpha=0.8,
         figsize=(10, 10),
+        dpi=300,
         title='',
     ) -> None:
 
@@ -28,11 +29,12 @@ class __Figure():
         self.linewidth = linewidth
         self.alpha = alpha
         self.figsize = figsize
+        self.dpi = dpi
         self.title = title
         self.debug_flag = DEBUG
 
         # Prepare figure:
-        self.fig = plt.figure(figsize=self.figsize)
+        self.fig = plt.figure(figsize=self.figsize, dpi=self.dpi)
         self._make_layout()
 
     def _make_layout(self) -> None:
@@ -85,6 +87,7 @@ class ModalityPlot(__Figure, __Output):
         full_center=True,
         whole_sum=True,            # Calculate all three modality vectors despite binarization
         figsize=(10, 10),
+        dpi=300,
         title='',
         colors=(
             'tab:green',           # Set 1 color
@@ -135,6 +138,7 @@ class ModalityPlot(__Figure, __Output):
             linewidth,
             alpha,
             figsize,
+            dpi,
             title,
         )
 

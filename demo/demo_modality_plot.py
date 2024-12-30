@@ -38,6 +38,7 @@ if __name__ == '__main__':
                                 full_center=True,          # Draw all vectors in the central subplot, else draw trimodal vectors only
                                 whole_sum=True,            # Calculate all three modality vectors despite binarization
                                 figsize=(10, 10),
+                                dpi=200,
                                 title='Modality Diagram Example',
                                 colors=(
                                     'tab:green',   # Set 1 color
