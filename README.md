@@ -78,7 +78,7 @@ for file in files:
 
     # Parse data from csv file
     new_csv = csv.OpenFile(file_path)
-    data, binarization = new_csv.ParseCsv(3, 3)
+    data, binarization = new_csv.GetRows(3, 3)
 
     # Make figure:
     plot = plt.ModalityPlot(
@@ -99,7 +99,7 @@ for file in files:
                                    # else draw trimodal vectors only
         whole_sum=True,            # Calculate all three modality vectors despite binarization
         figsize=(10, 10),
-        dpi=200,
+        dpi=100,
         title='Modality Diagram Example',
         colors=(
             'tab:green',   # Set 1 color

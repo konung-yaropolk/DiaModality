@@ -20,7 +20,7 @@ class __Figure():
         linewidth=0.5,
         alpha=0.8,
         figsize=(10, 10),
-        dpi=300,
+        dpi=100,
         title='',
     ) -> None:
 
