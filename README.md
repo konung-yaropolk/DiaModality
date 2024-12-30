@@ -77,7 +77,7 @@ for file in files:
     file_path = os.path.join(script_dir, file)
 
     # Parse data from csv file
-    new_csv = csv.LoadCsv(file_path)
+    new_csv = csv.OpenFile(file_path)
     data, binarization = new_csv.ParseCsv(3, 3)
 
     # Make figure:
