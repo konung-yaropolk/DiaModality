@@ -14,7 +14,9 @@ keywords = ["Visualization", "Science", "Plotting", "Matplotlib"]
 readme = {file = "README.md", content-type = "text/markdown"}
 requires-python = ">=3.10"
 classifiers = [
+    "Programming Language :: Python",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Development Status :: 4 - Beta",
