@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-import DiaModality.scsv as csv
 import DiaModality.ModalityPlot as plt
+import scsv as csv
 import os
 
 if __name__ == '__main__':

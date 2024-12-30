@@ -61,8 +61,8 @@ with open(file_path, mode='w', newline='') as file:
 ---
 ``plot_sample_data.py``:
 ```python
-import DiaModality.CsvParser as csv
 import DiaModality.ModalityPlot as plt
+import scsv as csv
 import os
 
 # input files:
