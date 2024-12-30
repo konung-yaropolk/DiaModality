@@ -94,6 +94,7 @@ for file in files:
         linestyle='-',
         linewidth=0.5,
         alpha=0.5,
+        dpi=200,
         same_scale=False,          # Draw all the subplots in the same scale
         full_center=True,          # Draw all vectors in the central subplot,
                                    # else draw trimodal vectors only
