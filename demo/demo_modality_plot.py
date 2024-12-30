@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import DiaModality.SimpleCsv as csv
+import DiaModality.scsv as csv
 import DiaModality.ModalityPlot as plt
 import os
 
