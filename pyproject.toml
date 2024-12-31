@@ -32,6 +32,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/konung-yaropolk/DiaModality"
+Repository = "https://github.com/konung-yaropolk/DiaModality.git"
 Issues = "https://github.com/konung-yaropolk/DiaModality/issues"
 
 [tool.setuptools.dynamic]
