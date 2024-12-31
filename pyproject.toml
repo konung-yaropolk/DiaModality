@@ -27,7 +27,7 @@ classifiers = [
 dependencies = [
     "numpy",
     "matplotlib",
-    "scsv",
+    "scsv>=0.1.4",
 ]
 
 [project.urls]
