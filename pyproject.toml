@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=62.6"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "DiaModality"
-dynamic = ["version"]
+dynamic = ["version", "dependencies"]
 license = {file = "LICENSE"}
 authors = [
   { name="konung-yaropolk", email="yaropolk1995@gmail.com" },
@@ -37,3 +37,4 @@ Issues = "https://github.com/konung-yaropolk/DiaModality/issues"
 
 [tool.setuptools.dynamic]
 version = {attr = "DiaModality.__version__"}
+dependencies = {file = ["requirements.txt"]}
