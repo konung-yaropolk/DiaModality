@@ -24,11 +24,6 @@ classifiers = [
     "Natural Language :: English",
     "Topic :: Scientific/Engineering :: Visualization",
 ]
-dependencies = [
-    "numpy",
-    "matplotlib",
-    "scsv>=0.1.4",
-]
 
 [project.urls]
 Homepage = "https://github.com/konung-yaropolk/DiaModality"
