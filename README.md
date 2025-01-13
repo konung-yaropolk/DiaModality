@@ -16,7 +16,7 @@ pip install diamodality
 ```
 
 
-### Example of use:
+### Example use case:
 See the /demo directory on Git repo or  
 create and run the following two files:  
 *(file names don't matter)*
