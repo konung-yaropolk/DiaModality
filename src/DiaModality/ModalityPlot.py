@@ -345,4 +345,4 @@ class ModalityPlot(__Figure, __Output):
 
 
 if __name__ == '__main__':
-    print('\nThis script can be used as an imported module only\n')
+    print('This package works as an imported module only.\nUse "import diamodality" statement')
