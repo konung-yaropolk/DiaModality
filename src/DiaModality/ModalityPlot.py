@@ -1,14 +1,16 @@
 #!/usr/bin/env python
+import os
+import pathlib
+import numpy as np
 import matplotlib.pyplot as plt
 # import matplotlib.colors as mcolors
 import matplotlib.gridspec as gridspec
-import numpy as np
 
 # Only use for plot layout adjustment
 DEBUG = False
 
 
-class __Figure():
+class _Figure():
     '''
         Super class of all future plots
     '''
@@ -44,22 +46,24 @@ class __Figure():
         plt.suptitle(self.title)
 
 
-class __Output():
+class _Output():
     '''
         Output options mixin
     '''
 
     def show(self):
-        plt.show()
+        self.fig.show()
 
-    def save(self,
-             filename,
-             type='png',
-             transparent=False):
-        plt.savefig('{}.{}'.format(filename, type), transparent=transparent)
+    def save(self, filename: str, file_type: str = 'png', transparent: bool = False) -> None:
+        p = pathlib.Path(filename)
+        if p.suffix.lower() == f'.{file_type.lower()}':
+            out_path = p
+        else:
+            out_path = p.with_suffix(f'.{file_type}')
+        self.fig.savefig(out_path, transparent=transparent)
 
 
-class ModalityPlot(__Figure, __Output):
+class ModalityPlot(_Figure, _Output):
     '''
         Input fotmat:
 
@@ -157,10 +161,11 @@ class ModalityPlot(__Figure, __Output):
             Each row containing at least one value that will be represented as a point.
         '''
 
-        output_data = np.array(input_data, dtype=object)
+        data = np.array(input_data, dtype=object)
         # Replace empty cells with zeros
-        output_data[output_data is None] = 0
-        output_data = output_data.astype(np.float32)
+        output_data = np.nan_to_num(
+            np.array(data, dtype=np.float64),  
+            nan=0.0)
 
         # Replace zeros with False and other numbers with True
         output_bin = np.array(input_bin, dtype=np.bool_)
@@ -187,32 +192,27 @@ class ModalityPlot(__Figure, __Output):
             #     log_input = np.log1p(input)
             #     func = lambda x: (x - np.min(log_input)) / (np.max(log_input) - np.min(log_input))
 
+            case _:
+                raise ValueError(
+                    f"Unknown normalization_func {self.normalization_func!r}. "
+                    "Expected 'linear' or 'sigmoid'."
+                )
+
         return [func(x) for x in input]
 
-    def __vector_addition(self, data, binarization) -> list:
-
-        resultants = np.array((), dtype=np.float32)
-
+    def __vector_addition(self, data, binarization) -> np.ndarray:
+        resultants = []
         for points, bins in zip(data, binarization):
-
-            # ignore empty lines
-            if not all(x == 0 for x in points):
-
-                # Calculate resultant vector
-                resultants = np.append(
-                    resultants,
-                    np.sum(
-                        [points[i] * np.exp(1j * self.angles[i])
-                            if bins[i] or self.whole_sum
-                            else 0
-                            for i in range(len(points))
-                         ]
-                    )
+            if np.any(points != 0):
+                r = sum(
+                    points[i] * np.exp(1j * self.angles[i])
+                    if bins[i] or self.whole_sum else 0
+                    for i in range(3)
                 )
+                resultants.append(r)
             else:
-                resultants = np.append(resultants, (0))
-
-        return resultants
+                resultants.append(0)
+        return np.array(resultants, dtype=complex)
 
     def __find_match_modality(self, sample, list) -> int:
         for i, item in enumerate(list):
@@ -339,9 +339,9 @@ class ModalityPlot(__Figure, __Output):
         if self.debug_flag:
             self.__debug_grid(self.fig, 20, 20)
 
-        plt.subplots_adjust(wspace=0.0, hspace=0.0)
-        plt.tight_layout()
-        plt.suptitle(self.title)
+        self.fig.subplots_adjust(wspace=0.0, hspace=0.0)
+        self.fig.tight_layout()
+        self.fig.suptitle(self.title)
 
 
 if __name__ == '__main__':
